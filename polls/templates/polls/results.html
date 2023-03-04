@@ -1,0 +1,14 @@
+<h2>
+    {{question.id}}) {{ question.question_text }}
+</h2>
+{% if question.choice_set.all %}
+    <ul>
+    {% for choice in question.choice_set.all %}
+        <li>
+            {{ choice.choice_text }}: {{ choice.votes }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>The question does not have choices</p>
+{% endif %}
